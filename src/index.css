@@ -1,0 +1,17 @@
+@font-face {
+  font-family: Amble;
+  src: url(Amble-Regular.ttf);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Amble", sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: #3f3f3f;
+}
