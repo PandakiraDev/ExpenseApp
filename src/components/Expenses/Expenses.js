@@ -5,6 +5,7 @@ import ExpensesFilter from "./ExpensesFilter";
 import ExpensesList from "./ExpensesList";
 import ExpensesChart from "./ExpensesChart";
 import useExpensesQuery from "../../hooks/ExpensesQueryHook";
+import ExpenseTotal from "./ExpenseTotal";
 
 const Expenses = (props) => {
   const { result, reexecuteQuery } = useExpensesQuery();
@@ -75,6 +76,7 @@ const Expenses = (props) => {
           ))} */}
           <ExpensesChart expenses={filteredExpenses} />
           <ExpensesList items={filteredExpenses} />
+          <ExpenseTotal amounts={filteredExpenses} />
         </Card>
       </div>
     )
