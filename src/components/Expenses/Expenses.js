@@ -11,8 +11,13 @@ const Expenses = (props) => {
 
   const { data, fetching, error } = result;
 
+  const [filteredMonth, setFilteredMonth] = useState("all");
   const [filteredYear, setFilteredYear] = useState("2023");
   const [filteredCategory, setFilteredCategory] = useState("all");
+
+  const filterMonthChangeHandler = (selectedMonth) => {
+    setFilteredMonth(selectedMonth);
+  };
 
   const filterYearChangeHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
@@ -24,6 +29,15 @@ const Expenses = (props) => {
 
   const filteredExpenses = data?.expenses
     .filter((expense) => {
+      console.log(new Date(expense.date).getMonth().toString());
+      console.log(filteredMonth);
+
+      return (
+        new Date(expense.date).getMonth().toString() === filteredMonth ||
+        filteredMonth === "all"
+      );
+    })
+    .filter((expense) => {
       return new Date(expense.date).getFullYear().toString() === filteredYear;
     })
     .filter((expense) => {
@@ -31,6 +45,7 @@ const Expenses = (props) => {
         expense.category === filteredCategory || filteredCategory === "all"
       );
     });
+
   if (fetching) return <p>Ładowanie...</p>;
   if (error) return <p>O nie...{error.message}</p>;
   // if (data) console.log(data);
@@ -40,6 +55,8 @@ const Expenses = (props) => {
       <div>
         <Card className="expenses">
           <ExpensesFilter
+            selectedMonth={filteredMonth}
+            onChangeFilterMonth={filterMonthChangeHandler}
             selectedYear={filteredYear}
             onChangeFilterYear={filterYearChangeHandler}
             selectedCategory={filteredCategory}
