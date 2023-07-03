@@ -47,6 +47,10 @@
   text-align: center;
 }
 
+.expense-item__price-and-category {
+  flex-direction: column;
+}
+
 @media (min-width: 580px) {
   .expense-item__description {
     flex-direction: row;
