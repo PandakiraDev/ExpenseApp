@@ -37,7 +37,12 @@ const ExpenseItem = (props) => {
             </div>
           </div>
         </div>
-        <button onClick={() => handleDeleteExpense(props.id)}>X</button>
+        <button
+          className="expense-item__button"
+          onClick={() => handleDeleteExpense(props.id)}
+        >
+          X
+        </button>
       </Card>
     </li>
   );

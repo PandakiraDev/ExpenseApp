@@ -8,21 +8,20 @@
   background-color: #4b4b4b;
 }
 
-.expense-item button {
+.expense-item__button {
   position: absolute;
   top: -10%;
   right: -1.5%;
   font-size: 1rem;
   font-weight: bold;
   color: white;
-  background-color: #5f0219;
+  background-color: #940328;
   border: 1px solid white;
   border-radius: 50%;
 }
 
-.expense-item button :hover {
-  background-color: #410111;
-  box-shadow: #3a3a3a;
+:hover .expense-item__button {
+  cursor: pointer;
 }
 
 .expense-item__description {
