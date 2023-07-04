@@ -30,6 +30,9 @@ const Expenses = (props) => {
 
   const filteredExpenses = data?.expenses
     .filter((expense) => {
+      console.log(new Date(expense.date).getMonth().toString());
+      console.log(filteredMonth);
+
       return (
         new Date(expense.date).getMonth().toString() === filteredMonth ||
         filteredMonth === "all"
@@ -42,14 +45,6 @@ const Expenses = (props) => {
       return (
         expense.category === filteredCategory || filteredCategory === "all"
       );
-    })
-    .filter((expense) => {
-      if (filteredCategory === "all") {
-        if (expense.category === "income") {
-          return false;
-        }
-      }
-      return true;
     });
 
   if (fetching) return <p>Ładowanie...</p>;

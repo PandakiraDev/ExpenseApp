@@ -1,0 +1,19 @@
+.expense-total {
+  /* padding: 0.1rem; */
+  border-radius: 12px;
+  background-color: #f8dfff;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  /* height: 10rem; */
+}
+.expense-total-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.expense-total {
+  font-size: 1.5rem;
+}

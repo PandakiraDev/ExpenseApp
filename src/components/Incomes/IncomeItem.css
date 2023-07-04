@@ -1,28 +1,10 @@
 .expense-item {
   display: flex;
-  position: relative;
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem;
   margin: 1rem 0;
   background-color: #4b4b4b;
-}
-
-.expense-item button {
-  position: absolute;
-  top: -10%;
-  right: -1.5%;
-  font-size: 1rem;
-  font-weight: bold;
-  color: white;
-  background-color: #5f0219;
-  border: 1px solid white;
-  border-radius: 50%;
-}
-
-.expense-item button :hover {
-  background-color: #410111;
-  box-shadow: #3a3a3a;
 }
 
 .expense-item__description {
@@ -71,7 +53,6 @@
   flex-direction: column;
   align-items: end;
   justify-content: end;
-  margin-right: 10px;
 }
 
 @media (min-width: 580px) {

@@ -1,29 +1,11 @@
 import React from "react";
 
-import ExpenseDate from "./ExpenseDate";
+import ExpenseDate from "./IncomeDate";
 import "./ExpenseItem.css";
 import Card from "../UI/Card";
 import { convertCategoryName } from "../../utils/convertCategoryName";
-import { gql, useMutation } from "urql";
-
-const deleteExpenseMutation = gql`
-  mutation DeleteExpense($id: ID!) {
-    deleteExpense(where: { id: $id }) {
-      id
-    }
-  }
-`;
 
 const ExpenseItem = (props) => {
-  const [deleteExpenseResult, deleteExpense] = useMutation(
-    deleteExpenseMutation
-  );
-
-  const handleDeleteExpense = async (id) => {
-    await deleteExpense({ id });
-  };
-  console.log(props);
-
   return (
     <li>
       <Card className="expense-item">
@@ -37,7 +19,6 @@ const ExpenseItem = (props) => {
             </div>
           </div>
         </div>
-        <button onClick={() => handleDeleteExpense(props.id)}>X</button>
       </Card>
     </li>
   );

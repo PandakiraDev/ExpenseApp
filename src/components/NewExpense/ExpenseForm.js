@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 import { gql, useMutation } from "urql";
 import useExpensesQuery from "../../hooks/ExpensesQueryHook";
+import { categoryNames } from "../../constants/categoryNames";
 
 const categoryOptions = [
   {
@@ -9,12 +10,20 @@ const categoryOptions = [
     value: "life",
   },
   {
-    label: "Samochód",
-    value: "car",
+    label: "Paliwo",
+    value: "gas",
   },
   {
-    label: "Ubrania",
-    value: "clothes",
+    label: "Inne",
+    value: "other",
+  },
+  {
+    label: "Opłaty",
+    value: "fees",
+  },
+  {
+    label: "Przychody",
+    value: "income",
   },
 ];
 
@@ -45,7 +54,7 @@ const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
-  const [enteredCateogry, setEnteredCategory] = useState(
+  const [enteredCategory, setEnteredCategory] = useState(
     categoryOptions[0].value
   );
   //   const [userInput, setUserInput] = useState({
@@ -112,7 +121,7 @@ const ExpenseForm = (props) => {
       title: enteredTitle,
       amount: +enteredAmount,
       date: new Date(enteredDate),
-      category: enteredCateogry,
+      category: enteredCategory,
     };
 
     const newExpense = await createExpense(expenseData);
@@ -162,7 +171,7 @@ const ExpenseForm = (props) => {
         </div>
         <div className="new-expense__control">
           <label>Kategoria:</label>
-          <select value={enteredCateogry} onChange={categoryChangeHandler}>
+          <select value={enteredCategory} onChange={categoryChangeHandler}>
             {categoryOptions.map((category, index) => (
               <option key={index} value={category.value}>
                 {category.label}

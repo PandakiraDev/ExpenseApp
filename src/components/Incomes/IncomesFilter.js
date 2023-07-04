@@ -54,10 +54,8 @@ const ExpensesFilter = (props) => {
           onChange={dropdownChangeCategoryHandler}
         >
           <option value="life">Życie</option>
-          <option value="gas">Paliwo</option>
-          <option value="other">Inne</option>
-          <option value="fees">Opłaty</option>
-          <option value="income">Przychody</option>
+          <option value="car">Samochód</option>
+          <option value="clothes">Ubrania</option>
           <option value="all">Wszystko</option>
         </select>
       </div>
